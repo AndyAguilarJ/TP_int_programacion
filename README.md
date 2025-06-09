@@ -1,8 +1,8 @@
 # TP Integración Programación
 
 ## Integrantes:
-- Matías Alochis  
-- Joel Aguilar
+- Matías Alochis COMISIÓN 23  
+- Joel Aguilar COMISIÓN 23
 
 ##  Descripción del Proyecto
 

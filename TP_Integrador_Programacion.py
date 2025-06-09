@@ -102,7 +102,7 @@ if __name__ == "__main__":
         end = time.perf_counter()
         bucket_times.append(end - start)
 
-    """# Gráfico de comparación
+    # Gráfico de comparación
     plt.figure(figsize=(10, 6))
     plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
     plt.plot(sizes, bucket_times, label="Bucket Sort", marker="s")
@@ -113,4 +113,3 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.tight_layout()
     plt.show()
-"""

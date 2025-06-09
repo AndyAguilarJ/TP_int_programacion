@@ -42,7 +42,7 @@ def bubble_sort(emails):
                 sorted_emails[j], sorted_emails[j + 1] = sorted_emails[j + 1], sorted_emails[j]
     return sorted_emails
 
-# Bucket Sort puro (tipo Radix) corregido
+# Bucket Sort puro (tipo Radix)
 def bucket_sort(emails):
     def get_char(email, pos):
         sender = email["sender"].lower()
@@ -64,7 +64,7 @@ def bucket_sort(emails):
 
     return emails
 
-# --- Ejecución principal ---
+# Ejecución principal
 if __name__ == "__main__":
 
     # Bubble Sort
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     print("Tiempo de ejecución Bubble Sort:", bubble_duration)
     print("Tiempo de ejecución Bucket Sort:", bucket_duration)
 
-    # --- Benchmark gráfico ---
+    # Benchmark gráfico
     sizes = list(range(1000, 10001, 1000))
     bubble_times = []
     bucket_times = []

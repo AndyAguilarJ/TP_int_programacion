@@ -90,7 +90,7 @@ if __name__ == "__main__":
     print("Tiempo de ejecución Bucket Sort:", bucket_duration)
 
     # --- Benchmark gráfico ---
-    sizes = list(range(1000, 10001, 1000))# tamaño de emails que se pasan por tanda
+    sizes = list(range(100, 5000, 100))# tamaño de emails que se pasan por tanda
     bubble_times = []
     bucket_times = []
 
@@ -119,6 +119,6 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
     print("Memoria usada Bubble Sort: {:.2f} KB".format(peak_bubble / 1024))
     print("Memoria usada Bucket Sort: {:.2f} KB".format(peak_bucket / 1024))
+    plt.show()

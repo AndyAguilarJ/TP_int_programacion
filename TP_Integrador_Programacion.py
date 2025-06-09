@@ -97,24 +97,23 @@ if __name__ == "__main__":
     sizes = list(range(100, 5000, 100))# tamaño de emails que se pasan por tanda
     bubble_times = []
     bucket_times = []
-
+    result_bubble = []
+    result_bucket = []
     for size in sizes:
         sample = emails[:size]
 
         # Bubble Sort
         start = time.perf_counter()
-        bubble_sort(sample)
+        bubble_result = bubble_sort(sample)
         end = time.perf_counter()
         bubble_times.append(end - start)
-
+        result_bubble.append(bubble_result)
+        
         # Bucket Sort
         start = time.perf_counter()
-        bucket_sort(sample)
+        bucket_result = bucket_sort(sample)
         end = time.perf_counter()
         bucket_times.append(end - start)
-
-    # Gráfico de comparación
-
         result_bucket.append(bucket_result)
 
     #prints del resultado ordenado

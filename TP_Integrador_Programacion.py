@@ -112,10 +112,9 @@ if __name__ == "__main__":
         bucket_sort(sample)
         end = time.perf_counter()
         bucket_times.append(end - start)
-<<<<<<< HEAD
 
     # Gráfico de comparación
-=======
+
         result_bucket.append(bucket_result)
 
     #prints del resultado ordenado
@@ -130,7 +129,6 @@ if __name__ == "__main__":
             print(email["sender"])
 
     #Gráfico de comparación
->>>>>>> 8cc05b4c090943ed31fa585ced2abda82470f047
     plt.figure(figsize=(10, 6))
     plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
     plt.plot(sizes, bucket_times, label="Bucket Sort", marker="s")

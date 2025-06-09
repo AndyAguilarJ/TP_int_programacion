@@ -2,10 +2,37 @@ import time
 import csv
 import matplotlib.pyplot as plt
 
-with open('fake_emails_10000.csv', mode='r') as file:
+# Selección del caso a analizar
+valor = input(
+    "Indique qué caso quiere analizar [1 - 5]:\n"
+    "1 - Caso Promedio\n"
+    "2 - Mejor Caso Bubble Sort\n"
+    "3 - Mejor Caso Bucket Sort\n"
+    "4 - Peor Caso Bubble Sort\n"
+    "5 - Peor Caso Bucket Sort\n"
+)
+
+match valor:
+    case "1":
+        archivo = "Lista_Emails_promedio.csv"
+    case "2":
+        archivo = "Mejor_Caso_Bubble.csv"
+    case "3":
+        archivo = "Mejor_Caso_Bucket.csv"
+    case "4":
+        archivo = "Peor_Caso_Bubble.csv"
+    case "5":
+        archivo = "Peor_Caso_Bucket.csv"
+    case _:
+        print("Opción inválida.")
+        exit()
+
+# Lectura del archivo CSV
+with open(archivo, mode='r', encoding='utf-8') as file:
     reader = csv.DictReader(file)
     emails = list(reader)
 
+# Bubble Sort puro
 def bubble_sort(emails):
     sorted_emails = emails[:]
     n = len(sorted_emails)
@@ -15,34 +42,47 @@ def bubble_sort(emails):
                 sorted_emails[j], sorted_emails[j + 1] = sorted_emails[j + 1], sorted_emails[j]
     return sorted_emails
 
+# Bucket Sort puro (tipo Radix) corregido
 def bucket_sort(emails):
-    if len(emails) <= 1:
-        return emails
-    pivot = emails[0]
-    less = [x for x in emails[1:] if x["sender"].lower() <= pivot["sender"].lower()]
-    greater = [x for x in emails[1:] if x["sender"].lower() > pivot["sender"].lower()]
-    return bucket_sort(less) + [pivot] + bucket_sort(greater)
+    def get_char(email, pos):
+        sender = email["sender"].lower()
+        return sender[pos] if pos < len(sender) else ' '
 
-if __name__ == "__main__" : 
+    max_len = max(len(email["sender"]) for email in emails)
 
-    # Time Bubble Sort
-    start_bubble = time.time()
+    for pos in reversed(range(max_len)):
+        buckets = [[] for _ in range(27)]  # ' ' + 'a'-'z'
+
+        for email in emails:
+            ch = get_char(email, pos)
+            index = 0 if ch == ' ' else ord(ch) - ord('a') + 1
+            if index < 0 or index >= 27:
+                index = 0  # cualquier símbolo, número o carácter especial va al bucket 0
+            buckets[index].append(email)
+
+        emails = [email for bucket in buckets for email in bucket]
+
+    return emails
+
+# --- Ejecución principal ---
+if __name__ == "__main__":
+
+    # Bubble Sort
+    start_bubble = time.perf_counter()
     bubble_emails = bubble_sort(emails)
-    
-    end_bubble = time.time()
+    end_bubble = time.perf_counter()
     bubble_duration = end_bubble - start_bubble
 
-    # Time bucket Sort
+    # Bucket Sort
     start_bucket = time.perf_counter()
     bucket_emails = bucket_sort(emails)
-
     end_bucket = time.perf_counter()
     bucket_duration = end_bucket - start_bucket
 
-    print("El tiempo de ordenamiento del bubble sort: " ,bubble_duration)
-    print("El tiempo de ordenamiento del bucket sort: " ,bucket_duration)
+    print("Tiempo de ejecución Bubble Sort:", bubble_duration)
+    print("Tiempo de ejecución Bucket Sort:", bucket_duration)
 
-    # Benchmark
+    # --- Benchmark gráfico ---
     sizes = list(range(1000, 10001, 1000))
     bubble_times = []
     bucket_times = []
@@ -50,25 +90,27 @@ if __name__ == "__main__" :
     for size in sizes:
         sample = emails[:size]
 
-        # Time bubble sort
+        # Bubble Sort
         start = time.perf_counter()
         bubble_sort(sample)
         end = time.perf_counter()
         bubble_times.append(end - start)
 
-        # Time bucket sort
+        # Bucket Sort
         start = time.perf_counter()
         bucket_sort(sample)
         end = time.perf_counter()
         bucket_times.append(end - start)
 
+    """# Gráfico de comparación
     plt.figure(figsize=(10, 6))
     plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
-    plt.plot(sizes, bucket_times, label="Bucket Sort ", marker="s")
+    plt.plot(sizes, bucket_times, label="Bucket Sort", marker="s")
     plt.xlabel("Número de Emails")
     plt.ylabel("Tiempo (segundos)")
-    plt.title("Tiempo de ordenamiento vs Número de Emails (Bubble vs Bucket Sort)")
+    plt.title("Comparación de Tiempos: Bubble Sort vs Bucket Sort")
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+"""

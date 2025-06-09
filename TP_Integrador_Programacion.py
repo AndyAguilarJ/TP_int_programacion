@@ -1,6 +1,7 @@
 import time
 import csv
 import matplotlib.pyplot as plt
+import tracemalloc
 
 # Selección del caso a analizar
 valor = input(
@@ -42,7 +43,7 @@ def bubble_sort(emails):
                 sorted_emails[j], sorted_emails[j + 1] = sorted_emails[j + 1], sorted_emails[j]
     return sorted_emails
 
-# Bucket Sort puro (tipo Radix) corregido
+# Bucket Sort puro (tipo Radix) 
 def bucket_sort(emails):
     def get_char(email, pos):
         sender = email["sender"].lower()
@@ -68,22 +69,28 @@ def bucket_sort(emails):
 if __name__ == "__main__":
 
     # Bubble Sort
+    tracemalloc.start()
     start_bubble = time.perf_counter()
     bubble_emails = bubble_sort(emails)
     end_bubble = time.perf_counter()
     bubble_duration = end_bubble - start_bubble
+    current_bubble, peak_bubble = tracemalloc.get_traced_memory()
+    tracemalloc.stop()#finalizacion de medicion de tamaño en espacio
 
     # Bucket Sort
+    tracemalloc.start()
     start_bucket = time.perf_counter()
     bucket_emails = bucket_sort(emails)
     end_bucket = time.perf_counter()
-    bucket_duration = end_bucket - start_bucket
+    bucket_duration = end_bucket - start_bucket#duracion total del bucket sort
+    current_bucket, peak_bucket = tracemalloc.get_traced_memory()
+    tracemalloc.stop()#finalizacion de medicion de tamaño en espacio
 
     print("Tiempo de ejecución Bubble Sort:", bubble_duration)
     print("Tiempo de ejecución Bucket Sort:", bucket_duration)
 
     # --- Benchmark gráfico ---
-    sizes = list(range(1000, 10001, 1000))
+    sizes = list(range(100, 5000, 100))# tamaño de emails que se pasan por tanda
     bubble_times = []
     bucket_times = []
 
@@ -102,7 +109,7 @@ if __name__ == "__main__":
         end = time.perf_counter()
         bucket_times.append(end - start)
 
-    """# Gráfico de comparación
+    #Gráfico de comparación
     plt.figure(figsize=(10, 6))
     plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
     plt.plot(sizes, bucket_times, label="Bucket Sort", marker="s")
@@ -112,5 +119,6 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    print("Memoria usada Bubble Sort: {:.2f} KB".format(peak_bubble / 1024))
+    print("Memoria usada Bucket Sort: {:.2f} KB".format(peak_bucket / 1024))
     plt.show()
-"""

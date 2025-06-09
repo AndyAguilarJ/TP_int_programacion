@@ -41,3 +41,11 @@ como en su aplicación práctica con ayuda de Joel. Logró interpretar y compara
 En conjunto, el trabajo permitió reforzar la importancia del trabajo colaborativo, donde cada integrante aportamos desde nuestro lugar,
 nos apoyaron mutuamente ante las dificultades y logramos, a nuestro entender, resultados consistentes y claros.
 La experiencia de coordinar tareas, documentar avances y validar resultados en equipo fue tan valiosa como el conocimiento técnico adquirido.
+
+## Objetivos del Trabajo Práctico
+
+- Aplicar los conceptos teóricos sobre análisis de algoritmos en un caso práctico.
+- Comparar el rendimiento temporal y de memoria entre dos algoritmos de ordenamiento: *Bubble Sort* y *Bucket Sort*.
+- Implementar ambos algoritmos y evaluarlos en distintos escenarios: mejor caso, peor caso y caso promedio.
+- Representar gráficamente los resultados obtenidos para facilitar su interpretación.
+- Fortalecer el trabajo colaborativo, la división de tareas y la documentación técnica en un entorno de programación realista.

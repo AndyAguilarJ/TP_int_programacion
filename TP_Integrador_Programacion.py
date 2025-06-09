@@ -43,16 +43,12 @@ def bubble_sort(emails):
                 sorted_emails[j], sorted_emails[j + 1] = sorted_emails[j + 1], sorted_emails[j]
     return sorted_emails
 
-<<<<<<< HEAD
-# Bucket Sort puro (tipo Radix)
-=======
 # Bucket Sort puro (tipo Radix) 
->>>>>>> 1fc237fb02db3ecef6115261981e3e137bdc9dc3
 def bucket_sort(emails):
     def get_char(email, pos):
         sender = email["sender"].lower()
         return sender[pos] if pos < len(sender) else ' '
-
+    
     max_len = max(len(email["sender"]) for email in emails)
 
     for pos in reversed(range(max_len)):
@@ -93,13 +89,8 @@ if __name__ == "__main__":
     print("Tiempo de ejecución Bubble Sort:", bubble_duration)
     print("Tiempo de ejecución Bucket Sort:", bucket_duration)
 
-<<<<<<< HEAD
-    # Benchmark gráfico
-    sizes = list(range(1000, 10001, 1000))
-=======
     # --- Benchmark gráfico ---
     sizes = list(range(100, 5000, 100))# tamaño de emails que se pasan por tanda
->>>>>>> 1fc237fb02db3ecef6115261981e3e137bdc9dc3
     bubble_times = []
     bucket_times = []
 
@@ -118,11 +109,7 @@ if __name__ == "__main__":
         end = time.perf_counter()
         bucket_times.append(end - start)
 
-<<<<<<< HEAD
-    # Gráfico de comparación
-=======
     #Gráfico de comparación
->>>>>>> 1fc237fb02db3ecef6115261981e3e137bdc9dc3
     plt.figure(figsize=(10, 6))
     plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
     plt.plot(sizes, bucket_times, label="Bucket Sort", marker="s")

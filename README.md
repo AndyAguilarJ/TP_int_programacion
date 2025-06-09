@@ -1,7 +1,7 @@
 # TP_Integración_programación 
 
-# BORRADOR
-# Integrantes: 
-# Descripcion del proyecto: En este TP Integrador se analizaron 2 algoritmos de ordenamiento y compararon los tiempos de resolución a fin de obtener un resultado que permita elegir cuál es el más eficiente. Para esto se consultó distinta bibliografía aclarada en el escrito desarrollado en PDF
-# Estructura: 
-# Instrucciones de ejecucion: Tiene que proveerse un listado de mails con formato .cvs,  especificar el nombre en el código desarrollado para que el mismo lo ordene y calcule el tiempo que tarda en hacerlo mediante Bubble Sort y Bucket Sort
+# Integrantes: Matias Alochis, Joel Aguilar
+
+# Descripción del proyecto: Este trabajo es sobre Análisis de Algoritmos y nos basamos en 2 de tipos de ordenamiento (Bubble Sort y Bucket Sort), medimos los tiempos de ejecución y sus casos límites donde se pueden generar errores. El objetivo es evaluar sus eficiencias en términos temporales a través de implementación, prueba y análisis de los mismos. El Análisis de Algoritmos nos permite ver cual resolución es la más adecuada dependiendo de las necesidades de ejecución, mantenimiento y escalabilidad del código. 
+
+# Instrucciones de ejecucion: Se necesita hacer pip install requirements.txt; en caso de no tener instalado pip, se deberá instalar primero.

@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     #Gráfico de comparación
     plt.figure(figsize=(10, 6))
-    plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
+    #plt.plot(sizes, bubble_times, label="Bubble Sort", marker="o")
     plt.plot(sizes, bucket_times, label="Bucket Sort", marker="s")
     plt.xlabel("Número de Emails")
     plt.ylabel("Tiempo (segundos)")

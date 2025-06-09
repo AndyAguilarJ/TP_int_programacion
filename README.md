@@ -28,3 +28,16 @@ Al iniciar, el programa te pedirá seleccionar un caso de análisis:
 5 - Peor Caso (Bucket Sort)
 
 El script mostrará en consola los tiempos de ejecución de ambos algoritmos y generará un gráfico comparativo para visualizar su comportamiento.
+
+## Reflexión del equipo
+
+Este proyecto fue una experiencia enriquecedora y desafiante, tanto desde lo técnico como desde lo humano. Si bien ambos integrantes colaboramos activamente, nuestras trayectorias previas fueron distintas, lo que aportó perspectivas complementarias.
+•	Joel Aguilar, con experiencia previa en programación, pudo **aplicar y afianzar sus conocimientos previos**,
+	profundizando en el análisis empírico de algoritmos y en la optimización de código.
+	Además, ejerció un rol clave en la estructuración del repositorio y la implementación de las pruebas automatizadas.
+•	Matías Alochis, con menos experiencia previa en programación, **se enfrentó el desafío de aprender los conceptos desde cero**,
+	comprendiendo el comportamiento de los algoritmos tanto desde lo teórico, mediante las fuentes de información consultadas,
+	como en su aplicación práctica con ayuda de Joel. Logró interpretar y comparar complejidades, y **participar activamente en el diseño del trabajo, la organización del contenido y el análisis crítico**.
+	En conjunto, el trabajo permitió reforzar la importancia del trabajo colaborativo, donde cada integrante aportamos desde nuestro lugar,
+	nos apoyaron mutuamente ante las dificultades y logramos, a nuestro entender, resultados consistentes y claros.
+	La experiencia de coordinar tareas, documentar avances y validar resultados en equipo fue tan valiosa como el conocimiento técnico adquirido.

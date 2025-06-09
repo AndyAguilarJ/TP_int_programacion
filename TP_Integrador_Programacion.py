@@ -93,7 +93,7 @@ if __name__ == "__main__":
     print("Tiempo de ejecución Bubble Sort:", bubble_duration)
     print("Tiempo de ejecución Bucket Sort:", bucket_duration)
 
-    # --- Benchmark gráfico ---
+    # Benchmark gráfico
     sizes = list(range(100, 5000, 100))# tamaño de emails que se pasan por tanda
     bubble_times = []
     bucket_times = []

@@ -48,7 +48,7 @@ def bucket_sort(emails):
     def get_char(email, pos):
         sender = email["sender"].lower()
         return sender[pos] if pos < len(sender) else ' '
-
+    
     max_len = max(len(email["sender"]) for email in emails)
 
     for pos in reversed(range(max_len)):
@@ -65,7 +65,7 @@ def bucket_sort(emails):
 
     return emails
 
-# --- Ejecución principal ---
+# Ejecución principal
 if __name__ == "__main__":
 
     # Bubble Sort

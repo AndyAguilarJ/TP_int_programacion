@@ -68,7 +68,11 @@ def bucket_sort(emails):
 # Ejecución principal
 if __name__ == "__main__":
 
-    # Bubble Sort
+    print("Los primeros 100 mails antes de ser ordenados: \n")
+    for email in emails[:100]:
+        print(email, "\n")
+
+    # Bubble Sort 
     tracemalloc.start()
     start_bubble = time.perf_counter()
     bubble_emails = bubble_sort(emails)
@@ -77,7 +81,7 @@ if __name__ == "__main__":
     current_bubble, peak_bubble = tracemalloc.get_traced_memory()
     tracemalloc.stop()#finalizacion de medicion de tamaño en espacio
 
-    # Bucket Sort
+    # Bucket Sort 
     tracemalloc.start()
     start_bucket = time.perf_counter()
     bucket_emails = bucket_sort(emails)
@@ -110,11 +114,18 @@ if __name__ == "__main__":
         bucket_result = bucket_sort(sample)
         end = time.perf_counter()
         bucket_times.append(end - start)
-        bucket_result.append(bucket_result)
+        result_bucket.append(bucket_result)
 
-    print(result_bubble)
-    print(result_bucket)
+    #prints del resultado ordenado
+    if result_bubble:
+        print("Primeros 100 ordenados con Bubble Sort:")
+        for email in result_bubble[0][:100]:
+            print(email["sender"])
 
+    if result_bucket:
+        print("Primeros 100 ordenados con Bucket Sort:")
+        for email in result_bucket[0][:100]:
+            print(email["sender"])
 
     #Gráfico de comparación
     plt.figure(figsize=(10, 6))

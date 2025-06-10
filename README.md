@@ -50,6 +50,7 @@ La experiencia de coordinar tareas, documentar avances y validar resultados en e
 - Representar gráficamente los resultados obtenidos para facilitar su interpretación.
 - Fortalecer el trabajo colaborativo, la división de tareas y la documentación técnica en un entorno de programación realista.
 
-##Link al video explicativo
+## Link al video explicativo
+
 https://drive.google.com/drive/u/0/folders/1S5aXIW-Jvd1YuCsEeppJ3yVvA3uS77t8
 
